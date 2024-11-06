@@ -530,12 +530,12 @@ ul li a:hover{
 /* Responsive styling */
 @media (max-width: 360px) {
     .slideshow-container {
-        max-width: 85%;
+        max-width: 90%;
         padding: 0 10px;
     }
 
     .slide img {
-        width: 85%;
+        width: 100%;
         border-radius: 8px;
     }
 
