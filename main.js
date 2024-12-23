@@ -32,7 +32,7 @@ function showSlides(n) {
             }
 
     // Initialize ScrollReveal
-    ScrollReveal().home-text('.home-text', {
+    ScrollReveal().reveal('.home-text', {
         duration: 1000,   // Animation duration (in ms)
         distance: '50px',  // Distance the element will move
         origin: 'bottom',  // Direction of the animation (top, right, bottom, left)
