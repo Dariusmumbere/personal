@@ -30,3 +30,15 @@ function showSlides(n) {
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
             }
+
+    // Initialize ScrollReveal
+    ScrollReveal().home-text('.home-text', {
+        duration: 1000,   // Animation duration (in ms)
+        distance: '50px',  // Distance the element will move
+        origin: 'bottom',  // Direction of the animation (top, right, bottom, left)
+        opacity: 0,        // Initial opacity before animation
+        scale: 0.9,        // Scale of the element before animation
+        reset: true,       // Reset animation when scrolling back up
+    });
+
+
