@@ -33,12 +33,36 @@ function showSlides(n) {
 
     // Initialize ScrollReveal
     ScrollReveal().reveal('.home-text', {
-        duration: 1000,   // Animation duration (in ms)
-        distance: '50px',  // Distance the element will move
+        duration: 2000,   // Animation duration (in ms)
+        distance: '150px',  // Distance the element will move
         origin: 'bottom',  // Direction of the animation (top, right, bottom, left)
         opacity: 0,        // Initial opacity before animation
         scale: 0.9,        // Scale of the element before animation
         reset: true,       // Reset animation when scrolling back up
     });
+services-content
 
-
+ScrollReveal().reveal('.services-content', {
+        duration: 1500,   // Animation duration (in ms)
+        distance: '100px',  // Distance the element will move
+        origin: 'right',  // Direction of the animation (top, right, bottom, left)
+        opacity: 0,        // Initial opacity before animation
+        scale: 0.9,        // Scale of the element before animation
+        reset: true,       // Reset animation when scrolling back up
+    });
+ScrollReveal().reveal('.heading', {
+        duration: 2000,   // Animation duration (in ms)
+        distance: '150px',  // Distance the element will move
+        origin: 'left',  // Direction of the animation (top, right, bottom, left)
+        opacity: 0,        // Initial opacity before animation
+        scale: 0.9,        // Scale of the element before animation
+        reset: true,       // Reset animation when scrolling back up
+    });
+ScrollReveal().reveal('.home-img', {
+        duration: 2000,   // Animation duration (in ms)
+        distance: '150px',  // Distance the element will move
+        origin: 'left',  // Direction of the animation (top, right, bottom, left)
+        opacity: 0,        // Initial opacity before animation
+        scale: 0.9,        // Scale of the element before animation
+        reset: true,       // Reset animation when scrolling back up
+    });
