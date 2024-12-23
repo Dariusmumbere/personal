@@ -40,3 +40,12 @@ function showSlides(n) {
         scale: 0.9,        // Scale of the element before animation
         reset: true,       // Reset animation when scrolling back up
     });
+    document.addEventListener('DOMContentLoaded', () => {
+    const animationContainer = document.getElementById('christmas-animation');
+
+    // Remove the animation after 10 seconds
+    setTimeout(() => {
+        animationContainer.style.display = 'none';
+    }, 10000);
+    });
+
