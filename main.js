@@ -46,6 +46,6 @@ function showSlides(n) {
     // Remove the animation after 10 seconds
     setTimeout(() => {
         animationContainer.style.display = 'none';
-    }, 10000);
+    }, 100000);
     });
 
