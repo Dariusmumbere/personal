@@ -630,3 +630,70 @@ ul li a:hover{
     left: 90%;
     animation-duration: 6s;
 }
+/* Container */
+.role-models-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f4f4f4;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Role Models Wrapper */
+.role-models {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  animation: scroll-left 20s linear infinite;
+}
+
+/* Individual Role Model Cards */
+.role-model {
+  min-width: 200px;
+  text-align: center;
+  margin: 0 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Role Model Image */
+.role-model img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Description Section */
+.description {
+  background-color: navy;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: left;
+  margin-top: -5px;
+  position: relative;
+  top: -10px;
+}
+
+.description p {
+  margin: 0;
+}
+
+/* Animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Pause Animation on Hover */
+.role-models-container:hover .role-models {
+  animation-play-state: paused;
+}
+
