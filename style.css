@@ -668,7 +668,7 @@ ul li a:hover{
 
 /* Description Section */
 .description {
-  background-color: navy;
+  background-color: var(--second-color);
   color: white;
   padding: 15px;
   border-radius: 10px;
@@ -690,10 +690,5 @@ ul li a:hover{
   100% {
     transform: translateX(-100%);
   }
-}
-
-/* Pause Animation on Hover */
-.role-models-container:hover .role-models {
-  animation-play-state: paused;
 }
 
