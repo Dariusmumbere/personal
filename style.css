@@ -632,7 +632,7 @@ ul li a:hover{
 }
 /* Container */
 .role-models-container {
-  width: 2000px;
+  width: 100%;
   overflow: hidden;
   background-color: #f4f4f4;
   padding: 20px 0;
