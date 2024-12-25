@@ -649,7 +649,7 @@ ul li a:hover{
 
 /* Individual Role Model Cards */
 .role-model {
-  min-width: 200px;
+  min-width: 300px;
   text-align: center;
   margin: 0 20px;
   background-color: #fff;
@@ -663,7 +663,7 @@ ul li a:hover{
 .role-model img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 /* Description Section */
@@ -675,7 +675,7 @@ ul li a:hover{
   text-align: left;
   margin-top: -5px;
   position: relative;
-  top: -10px;
+  top: 0px;
 }
 
 .description p {
