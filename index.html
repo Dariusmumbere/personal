@@ -58,12 +58,15 @@ nav{
     font-weight: 700;
 
 }
+/* Ensure the chatbot container stays fixed */
 #chatbot-container {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 1000; /* Ensures it stays above other elements */
 }
 
+/* Style the floating chat button */
 #chatbot-btn {
     background-color: #007bff;
     color: white;
@@ -74,8 +77,12 @@ nav{
     font-size: 24px;
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Hide the chat window initially */
 #chat-window {
     display: none;
     position: absolute;
@@ -94,6 +101,7 @@ nav{
     height: 100%;
     border: none;
 }
+
         
 ul{
     display: flex;
@@ -1008,18 +1016,16 @@ ul li a:hover{
                 animationContainer.style.display = 'none';
             }, 100000);
         });
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+       document.addEventListener("DOMContentLoaded", function () {
+    var chatButton = document.getElementById("chatbot-btn");
+    var chatWindow = document.getElementById("chat-window");
+
+    chatButton.addEventListener("click", function () {
+        // Toggle chat window visibility
+        chatWindow.style.display = (chatWindow.style.display === "block") ? "none" : "block";
     });
 });
-        document.getElementById("chatbot-btn").addEventListener("click", function () {
-    var chatWindow = document.getElementById("chat-window");
-    chatWindow.style.display = (chatWindow.style.display === "block") ? "none" : "block";
-});
+
 
     </script>
 </body>
