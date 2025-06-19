@@ -832,6 +832,143 @@
             transform: translateY(0);
         }
 
+        /* Project Modal */
+        .project-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .project-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 3rem;
+            position: relative;
+            transform: scale(0.9);
+            transition: var(--transition);
+        }
+
+        .project-modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--accent-color);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+        }
+
+        .modal-header h3 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .modal-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .modal-images {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .modal-images img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .modal-images img:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-md);
+        }
+
+        .modal-details h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .modal-details p {
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .meta-item {
+            background: rgba(248, 250, 252, 0.8);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .meta-item h5 {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-item p {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin: 0;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
         /* Testimonials Section */
         #testimonials {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
@@ -850,36 +987,47 @@
         }
 
         .testimonials-container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             position: relative;
         }
 
-        .testimonial-slide {
-            text-align: center;
-            padding: 3rem;
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-radius: var(--border-radius-lg);
             border: 1px solid var(--glass-border);
             box-shadow: var(--shadow-md);
+            padding: 2.5rem;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
         }
 
         .testimonial-img {
-            width: 120px;
-            height: 120px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--white);
-            margin: 0 auto 2rem;
-            box-shadow: var(--shadow-md);
+            border: 3px solid var(--white);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
         }
 
         .testimonial-text {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-style: italic;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             line-height: 1.8;
             position: relative;
         }
@@ -887,30 +1035,30 @@
         .testimonial-text::before,
         .testimonial-text::after {
             content: '"';
-            font-size: 3rem;
+            font-size: 2rem;
             color: rgba(255, 255, 255, 0.3);
             position: absolute;
         }
 
         .testimonial-text::before {
-            top: -20px;
-            left: -20px;
+            top: -15px;
+            left: -10px;
         }
 
         .testimonial-text::after {
-            bottom: -40px;
-            right: -20px;
+            bottom: -30px;
+            right: -10px;
         }
 
         .testimonial-author {
             font-weight: 700;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
 
         .testimonial-role {
             color: rgba(255, 255, 255, 0.8);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         /* Role Models Section */
@@ -1460,6 +1608,10 @@
             .role-models-grid {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
+
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1532,6 +1684,14 @@
             #chat-window.active {
                 transform: translateX(50%) translateY(0);
             }
+
+            .project-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-footer {
+                flex-direction: column;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1567,12 +1727,12 @@
                 grid-template-columns: 1fr;
             }
             
-            .testimonial-slide {
-                padding: 2rem 1.5rem;
+            .testimonial-card {
+                padding: 1.5rem;
             }
             
             .testimonial-text {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .footer-links {
@@ -1592,6 +1752,10 @@
                 font-size: 1.2rem;
                 bottom: 7rem;
                 right: 1.5rem;
+            }
+
+            .modal-content {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
@@ -1797,41 +1961,249 @@
             </div>
             
             <div class="portfolio-grid">
-                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
+                <!-- Project 1 -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100" data-project="1">
                     <div class="portfolio-img">
                         <img src="screen.PNG" alt="Calculator Project by Darius Mumbere" width="600" height="400">
                         <div class="portfolio-overlay">
                             <h3>Simple Calculator</h3>
                             <p>A fully functional calculator application with advanced features and responsive design built with modern JavaScript.</p>
-                            <a href="#" class="btn btn-outline">View Details</a>
+                            <a href="#" class="btn btn-outline view-project" data-project="1">View Details</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200" data-project="2">
                     <div class="portfolio-img">
                         <img src="an.PNG" alt="Website Project by Darius Mumbere" width="600" height="400">
                         <div class="portfolio-overlay">
                             <h3>Responsive Website</h3>
                             <p>A modern, mobile-first website built with HTML5, CSS3, and JavaScript featuring smooth animations and interactions.</p>
-                            <a href="#" class="btn btn-outline">View Details</a>
+                            <a href="#" class="btn btn-outline view-project" data-project="2">View Details</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300">
+                <!-- Project 3 -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300" data-project="3">
                     <div class="portfolio-img">
                         <img src="ndonn.PNG" alt="Static Website by Darius Mumbere" width="600" height="400">
                         <div class="portfolio-overlay">
                             <h3>Static Website</h3>
                             <p>A clean, minimalist static website showcasing modern web design principles and optimized for performance.</p>
-                            <a href="#" class="btn btn-outline">View Details</a>
+                            <a href="#" class="btn btn-outline view-project" data-project="3">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="400" data-project="4">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="E-commerce Platform by Darius Mumbere" width="600" height="400">
+                        <div class="portfolio-overlay">
+                            <h3>E-commerce Platform</h3>
+                            <p>Full-featured online store with product management, cart functionality, and secure checkout process.</p>
+                            <a href="#" class="btn btn-outline view-project" data-project="4">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="500" data-project="5">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mobile App Dashboard by Darius Mumbere" width="600" height="400">
+                        <div class="portfolio-overlay">
+                            <h3>Mobile App Dashboard</h3>
+                            <p>Analytics dashboard for a mobile application with real-time data visualization and user management.</p>
+                            <a href="#" class="btn btn-outline view-project" data-project="5">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="600" data-project="6">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="AI Chatbot by Darius Mumbere" width="600" height="400">
+                        <div class="portfolio-overlay">
+                            <h3>AI Chatbot</h3>
+                            <p>Intelligent chatbot powered by natural language processing to provide customer support and answer queries.</p>
+                            <a href="#" class="btn btn-outline view-project" data-project="6">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 7 -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="700" data-project="7">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Portfolio Website by Darius Mumbere" width="600" height="400">
+                        <div class="portfolio-overlay">
+                            <h3>Portfolio Website</h3>
+                            <p>Custom portfolio website with interactive elements and smooth animations to showcase creative work.</p>
+                            <a href="#" class="btn btn-outline view-project" data-project="7">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 8 -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="800" data-project="8">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Task Management App by Darius Mumbere" width="600" height="400">
+                        <div class="portfolio-overlay">
+                            <h3>Task Management App</h3>
+                            <p>Productivity application for managing tasks, projects, and deadlines with team collaboration features.</p>
+                            <a href="#" class="btn btn-outline view-project" data-project="8">View Details</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Project Modals -->
+    <div class="project-modal" id="project-modal-1">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <h3>Simple Calculator</h3>
+                <p>A fully functional calculator application with advanced features and responsive design built with modern JavaScript.</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <img src="screen.PNG" alt="Calculator Project Screenshot">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Calculator Project Code">
+                </div>
+                <div class="modal-details">
+                    <h4>Project Details</h4>
+                    <p>This calculator application was built using vanilla JavaScript with a focus on clean code architecture and responsive design. It includes advanced mathematical functions, memory operations, and a history feature to track previous calculations.</p>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <h5>Client</h5>
+                            <p>Personal Project</p>
+                        </div>
+                        <div class="meta-item">
+                            <h5>Category</h5>
+                            <p>Web Application</p>
+                        </div>
+                        <div class="meta-item">
+                            <h5>Technologies</h5>
+                            <p>HTML5, CSS3, JavaScript</p>
+                        </div>
+                        <div class="meta-item">
+                            <h5>Date</h5>
+                            <p>June 2023</p>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <a href="https://dariusmumbere.github.io/calculator/" class="btn" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/dariusmumbere/calculator" class="btn btn-outline" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-modal" id="project-modal-2">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <h3>Responsive Website</h3>
+                <p>A modern, mobile-first website built with HTML5, CSS3, and JavaScript featuring smooth animations and interactions.</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <img src="an.PNG" alt="Responsive Website Screenshot">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Responsive Website Code">
+                </div>
+                <div class="modal-details">
+                    <h4>Project Details</h4>
+                    <p>This responsive website was designed with a mobile-first approach, ensuring optimal performance across all devices. It features CSS animations, lazy loading for images, and a clean, minimalist design that prioritizes user experience.</p>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <h5>Client</h5>
+                            <p>Local Business</p>
+                        </div>
+                        <div class="meta-item">
+                            <h5>Category</h5>
+                            <p>Business Website</p>
+                        </div>
+                        <div class="meta-item">
+                            <h5>Technologies</h5>
+                            <p>HTML5, CSS3, JavaScript</p>
+                        </div>
+                        <div class="meta-item">
+                            <h5>Date</h5>
+                            <p>May 2023</p>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <a href="https://dariusmumbere.github.io/responsive-website/" class="btn" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/dariusmumbere/responsive-website" class="btn btn-outline" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-modal" id="project-modal-3">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <h3>Static Website</h3>
+                <p>A clean, minimalist static website showcasing modern web design principles and optimized for performance.</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <img src="ndonn.PNG" alt="Static Website Screenshot">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Static Website Code">
+                </div>
+                <div class="modal-details">
+                    <h4>Project Details</h4>
+                    <p>This static website was built with performance in mind, using optimized assets and efficient CSS. It features a responsive grid layout, semantic HTML5 markup, and accessibility best practices to ensure all users have a great experience.</p>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <h5>Client</h5>
+                            <p>Non-Profit Organization</p>
+                        </div>
+                        <div class="meta-item">
+                            <h5>Category</h5>
+                            <p>Informational Website</p>
+                        </div>
+                        <div class="meta-item">
+                            <h5>Technologies</h5>
+                            <p>HTML5, CSS3, JavaScript</p>
+                        </div>
+                        <div class="meta-item">
+                            <h5>Date</h5>
+                            <p>April 2023</p>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <a href="https://dariusmumbere.github.io/static-website/" class="btn" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/dariusmumbere/static-website" class="btn btn-outline" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="section">
@@ -1842,11 +2214,70 @@
             </div>
             
             <div class="testimonials-container" data-aos="fade-up">
-                <div class="testimonial-slide">
-                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson - CEO, TechSolutions Inc." width="120" height="120" class="testimonial-img">
-                    <p class="testimonial-text">Darius delivered our e-commerce platform ahead of schedule with exceptional quality. His attention to detail and problem-solving skills are remarkable. The website has helped increase our online sales by 150% within the first three months.</p>
-                    <h4 class="testimonial-author">Sarah Johnson</h4>
-                    <p class="testimonial-role">CEO, TechSolutions Inc.</p>
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson - CEO, TechSolutions Inc." width="80" height="80" class="testimonial-img">
+                        <p class="testimonial-text">Darius delivered our e-commerce platform ahead of schedule with exceptional quality. His attention to detail and problem-solving skills are remarkable. The website has helped increase our online sales by 150% within the first three months.</p>
+                        <h4 class="testimonial-author">Sarah Johnson</h4>
+                        <p class="testimonial-role">CEO, TechSolutions Inc.</p>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen - CTO, StartupHub" width="80" height="80" class="testimonial-img">
+                        <p class="testimonial-text">Working with Darius on our mobile app was a fantastic experience. He understood our vision perfectly and implemented features that went beyond our expectations. His technical expertise is matched only by his professionalism.</p>
+                        <h4 class="testimonial-author">Michael Chen</h4>
+                        <p class="testimonial-role">CTO, StartupHub</p>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amina Nalwoga - Marketing Director, GreenLife" width="80" height="80" class="testimonial-img">
+                        <p class="testimonial-text">Darius transformed our outdated website into a modern, high-performing digital asset. His strategic approach to UX design and SEO optimization has significantly increased our online visibility and customer engagement.</p>
+                        <h4 class="testimonial-author">Amina Nalwoga</h4>
+                        <p class="testimonial-role">Marketing Director, GreenLife</p>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David Okello - Founder, EduTech Africa" width="80" height="80" class="testimonial-img">
+                        <p class="testimonial-text">The AI chatbot Darius developed for our educational platform has revolutionized how we interact with students. His ability to translate complex requirements into elegant solutions is truly impressive.</p>
+                        <h4 class="testimonial-author">David Okello</h4>
+                        <p class="testimonial-role">Founder, EduTech Africa</p>
+                    </div>
+                    
+                    <!-- Testimonial 5 -->
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Grace Mbeki - Product Manager, FinTech Solutions" width="80" height="80" class="testimonial-img">
+                        <p class="testimonial-text">Darius's work on our financial dashboard was exceptional. He handled complex data visualization requirements with ease and delivered a product that our clients love. His communication throughout the project was excellent.</p>
+                        <h4 class="testimonial-author">Grace Mbeki</h4>
+                        <p class="testimonial-role">Product Manager, FinTech Solutions</p>
+                    </div>
+                    
+                    <!-- Testimonial 6 -->
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Robert Mugisha - Director, HealthPlus" width="80" height="80" class="testimonial-img">
+                        <p class="testimonial-text">Our hospital management system developed by Darius has streamlined our operations significantly. His ability to understand healthcare workflows and translate them into software features was invaluable.</p>
+                        <h4 class="testimonial-author">Robert Mugisha</h4>
+                        <p class="testimonial-role">Director, HealthPlus</p>
+                    </div>
+                    
+                    <!-- Testimonial 7 -->
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Fatima Nasser - CEO, DesignStudio" width="80" height="80" class="testimonial-img">
+                        <p class="testimonial-text">Darius built our portfolio website exactly as we envisioned, with beautiful animations and seamless interactions. He was patient with our numerous revisions and delivered a product we're proud to showcase.</p>
+                        <h4 class="testimonial-author">Fatima Nasser</h4>
+                        <p class="testimonial-role">CEO, DesignStudio</p>
+                    </div>
+                    
+                    <!-- Testimonial 8 -->
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="James Kato - Operations Manager, LogisticsPro" width="80" height="80" class="testimonial-img">
+                        <p class="testimonial-text">The task management application Darius developed has improved our team's productivity by 40%. His understanding of our business needs and his technical execution were both outstanding.</p>
+                        <h4 class="testimonial-author">James Kato</h4>
+                        <p class="testimonial-role">Operations Manager, LogisticsPro</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1982,6 +2413,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#work">Work</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 
@@ -2170,6 +2602,39 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                }
+            });
+        });
+
+        // Project Modals
+        const projectModals = document.querySelectorAll('.project-modal');
+        const viewProjectButtons = document.querySelectorAll('.view-project');
+        const modalCloseButtons = document.querySelectorAll('.modal-close');
+
+        viewProjectButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const projectId = button.getAttribute('data-project');
+                const modal = document.getElementById(`project-modal-${projectId}`);
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        modalCloseButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.project-modal');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close modal when clicking outside
+        projectModals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
                 }
             });
         });
