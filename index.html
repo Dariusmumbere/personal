@@ -183,14 +183,15 @@
         }
 
         .btn-primary {
-            background: var(--accent);
+            background: var(--gradient);
             color: var(--white);
+            box-shadow: 0 4px 18px rgba(91,142,255,0.25);
         }
 
         .btn-primary:hover {
-            background: #4a7df5;
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(91,142,255,0.3);
+            box-shadow: 0 10px 28px rgba(91,142,255,0.4);
+            filter: brightness(1.08);
         }
 
         .btn-ghost {
@@ -643,6 +644,7 @@
         }
 
         .portfolio-item {
+            position: relative;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -655,6 +657,48 @@
             border-color: rgba(91,142,255,0.3);
             transform: translateY(-6px);
             box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+        }
+
+        /* ─── FEATURED / SOLID PROJECT ─── */
+        .portfolio-item.featured {
+            border: 1px solid transparent;
+            background:
+                linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                var(--gradient) border-box;
+            box-shadow: 0 8px 32px rgba(91,142,255,0.14);
+        }
+
+        .portfolio-item.featured:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 56px rgba(91,142,255,0.28);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--gradient);
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
+            box-shadow: 0 6px 16px rgba(91,142,255,0.35);
+        }
+
+        .featured-badge i { font-size: 0.65rem; }
+
+        .portfolio-item.featured .portfolio-info h3 {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .portfolio-thumb {
@@ -1401,7 +1445,33 @@
         </div>
         <div class="portfolio-grid" id="portfolioGrid">
 
-            <div class="portfolio-item reveal reveal-delay-1" data-project="1">
+            <div class="portfolio-item featured reveal reveal-delay-1" data-project="ktc-ipfms">
+                <div class="featured-badge"><i class="fas fa-star"></i> Solid Build</div>
+                <div class="portfolio-thumb">
+                    <img src="ktc.jpg" alt="KTC-IPFMS">
+                    <div class="portfolio-overlay"><button class="overlay-btn">View Details</button></div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>KTC-IPFMS</h3>
+                    <p>Integrated Public Financing Management System for local government.</p>
+                    <div class="portfolio-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span></div>
+                </div>
+            </div>
+
+            <div class="portfolio-item featured reveal reveal-delay-2" data-project="growth">
+                <div class="featured-badge"><i class="fas fa-star"></i> Solid Build</div>
+                <div class="portfolio-thumb">
+                    <img src="growth.jpg" alt="Growth Tracker">
+                    <div class="portfolio-overlay"><button class="overlay-btn">View Details</button></div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Growth Tracker</h3>
+                    <p>Web app for tracking personal and business growth metrics over time.</p>
+                    <div class="portfolio-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span></div>
+                </div>
+            </div>
+
+            <div class="portfolio-item reveal reveal-delay-3" data-project="1">
                 <div class="portfolio-thumb">
                     <img src="reporting system.PNG" alt="Reporting System">
                     <div class="portfolio-overlay"><button class="overlay-btn">View Details</button></div>
@@ -1745,8 +1815,10 @@
 <script>
 // ─── PROJECT DATA ───────────────────────────────────
 const projects = {
+    'ktc-ipfms': { title: 'KTC-IPFMS', img: 'ktc.jpg', desc: 'Integrated Public Financing Management System (IPFMS) built for streamlined budgeting, expenditure tracking, and financial reporting in local government. Built end-to-end with HTML, CSS, and JavaScript on the frontend, and a FastAPI + PostgreSQL backend.', tags: ['HTML','CSS','JavaScript','FastAPI','PostgreSQL'], live: 'https://ktc_ipfms.vercel.app', code: 'https://ktc_ipfms.vercel.app' },
+    'growth':    { title: 'Growth Tracker', img: 'growth.jpg', desc: 'A growth tracking web app for monitoring key metrics and progress over time, built with the same stack as KTC-IPFMS — HTML, CSS, and JavaScript on the frontend with a FastAPI + PostgreSQL backend.', tags: ['HTML','CSS','JavaScript','FastAPI','PostgreSQL'], live: 'https://dariusmumbere.github.io/action', code: 'https://dariusmumbere.github.io/action' },
     '1':        { title: 'Reporting System', img: 'reporting system.PNG', desc: 'A professional reporting system with role-based access, authentication, and real-time reporting dashboards. Built with modern web technologies.', tags: ['HTML','CSS','JavaScript'], live: 'https://dariusmumbere.github.io/reporting', code: 'https://github.com/dariusmumbere/reporting' },
-    'elearn':   { title: 'E-learning Platform', img: 'elearn.PNG', desc: 'Full-stack e-learning platform built with React, FastAPI, PostgreSQL, and Backblaze B2 for storage. Includes student and instructor dashboards with full role management.', tags: ['React','FastAPI','PostgreSQL','Backblaze B2'], live: 'https://dariusmumbere.github.io/elearning', code: 'https://github.com/dariusmumbere/elearning' },
+    'elearn':   { title: 'E-learning Platform', img: 'elearn.PNG', desc: 'Full-stack e-learning platform built with React, FastAPI, PostgreSQL, and Backblaze B2 for storage. Includes student and instructor dashboards with full role management. Live at online-coderise.vercel.app.', tags: ['React','FastAPI','PostgreSQL','Backblaze B2'], live: 'https://online-coderise.vercel.app', code: 'https://github.com/dariusmumbere/elearning' },
     'barwoda':  { title: 'BARWODA Website', img: 'barwoda.PNG', desc: 'A modern, mobile-first responsive website for BARWODA women organization, built with HTML5, CSS3, and JavaScript. Optimized for performance and accessibility.', tags: ['HTML','CSS','JavaScript'], live: 'https://barwodawomen.org', code: 'https://barwodawomen.org' },
     'fapcan':   { title: 'FAPCAN Website', img: 'fapcan.jpg', desc: 'A professional website for FAPCAN, built with HTML, CSS, and JavaScript. Clean layout with strong organizational identity and responsive design.', tags: ['HTML','CSS','JavaScript'], live: 'https://fapcan.com', code: 'https://fapcan.com' },
     'karugutu': { title: 'Karugutu Town Council', img: 'karugutu.jpg', desc: 'A modern, responsive civic website for Karugutu Town Council, showcasing public services and community information. Built with HTML, CSS, and JavaScript.', tags: ['HTML','CSS','JavaScript'], live: 'https://karugututowncouncil.github.io/karugutu', code: 'https://karugututowncouncil.github.io/karugutu' },
