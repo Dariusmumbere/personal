@@ -1284,6 +1284,109 @@
         .reveal-delay-4 { transition-delay: 0.4s; }
         .reveal-delay-5 { transition-delay: 0.5s; }
         .reveal-delay-6 { transition-delay: 0.6s; }
+
+        /* ─── DROIDCON ─── */
+        #droidcon { padding: 8rem 0; background: var(--bg-2); }
+        .droid-intro {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        .droid-intro-text p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+        .droid-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+        .droid-tags .tag { display: inline-flex; align-items: center; gap: 0.4rem; }
+        .droid-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .droid-photo {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            cursor: zoom-in;
+            aspect-ratio: 4 / 3;
+            transition: var(--transition);
+        }
+        .droid-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .droid-photo:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .droid-photo:hover img { transform: scale(1.06); }
+        .droid-photo.feature { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+        .droid-award {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            min-height: 420px;
+        }
+        .droid-award img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+        .droid-award-badge {
+            position: absolute;
+            left: 1rem;
+            bottom: 1rem;
+            right: 1rem;
+            padding: 0.9rem 1.1rem;
+            border-radius: var(--radius-sm);
+            background: rgba(12,12,14,0.78);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-hover);
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            pointer-events: none;
+        }
+        .droid-award-badge i {
+            width: 38px; height: 38px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            background: var(--gradient-warm);
+            color: var(--white);
+            flex-shrink: 0;
+        }
+        .droid-award-badge strong { display: block; color: var(--white); font-size: 0.95rem; }
+        .droid-award-badge span { color: var(--text-muted); font-size: 0.82rem; }
+        .lightbox {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.92);
+            display: none;
+            align-items: center; justify-content: center;
+            z-index: 3000;
+            padding: 2rem;
+            cursor: zoom-out;
+        }
+        .lightbox.open { display: flex; }
+        .lightbox img { max-width: 100%; max-height: 100%; border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); }
+        .lightbox-close {
+            position: absolute; top: 1.25rem; right: 1.25rem;
+            width: 42px; height: 42px; border-radius: 50%;
+            border: 1px solid var(--border-hover);
+            background: rgba(255,255,255,0.08);
+            color: var(--white); font-size: 1rem; cursor: pointer;
+        }
+        @media (max-width: 1100px) {
+            .droid-intro { grid-template-columns: 1fr; }
+            .droid-award { min-height: 360px; }
+        }
+        @media (max-width: 700px) {
+            #droidcon { padding: 5rem 0; }
+            .droid-gallery { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 </head>
 <body>
@@ -1298,6 +1401,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#work">Work</a></li>
+                <li><a href="#droidcon">Droidcon</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact" class="nav-cta btn">Hire Me</a></li>
             </ul>
@@ -1336,7 +1440,7 @@
             </div>
             <div class="hero-photo-wrap">
                 <div class="hero-photo-inner">
-                    <img src="da.JPG" alt="Darius Mumbere">
+                    <img src="dariusmumbere.jpg" alt="Darius Mumbere">
                 </div>
                 <div class="hero-badge">
                     <div class="hero-badge-icon">⚡</div>
@@ -1356,7 +1460,7 @@
         <div class="about-grid">
             <div class="about-img-wrap reveal">
                 <div class="about-img-frame">
-                    <img src="ssss.JPG" alt="About Darius">
+                    <img src="dariusmumbere1.jpg" alt="About Darius">
                 </div>
                 <div class="about-stats">
                     <div class="stat-chip"><strong>4+</strong><span>Years exp.</span></div>
@@ -1609,6 +1713,60 @@
     </div>
 </div>
 
+<!-- DROIDCON -->
+<section id="droidcon">
+    <div class="container">
+        <div class="section-title reveal">
+            <div class="section-label">Community</div>
+            <h2>Droidcon Uganda</h2>
+            <p>Developers from across the globe gathered to explore the future of mobile app development.</p>
+        </div>
+
+        <div class="droid-intro">
+            <div class="droid-intro-text reveal">
+                <p>I attended <strong>Droidcon Uganda</strong>, where developers from around the world came together to look at where mobile app development is heading, with a strong focus on <strong>Flutter</strong> and <strong>Kotlin</strong>.</p>
+                <p>It was a great chance to learn from engineers building real products, trade ideas with the community, and sharpen how I approach mobile alongside my web and backend work. I also walked away with a small award, a gift that I'm proud of.</p>
+                <div class="droid-tags">
+                    <span class="tag"><i class="fas fa-mobile-alt"></i> Mobile Development</span>
+                    <span class="tag"><i class="fas fa-feather-alt"></i> Flutter</span>
+                    <span class="tag"><i class="fas fa-code"></i> Kotlin</span>
+                    <span class="tag"><i class="fas fa-users"></i> Global Community</span>
+                </div>
+            </div>
+            <div class="droid-award reveal reveal-delay-2">
+                <img src="gift.jpg" alt="Award received at Droidcon Uganda" data-lightbox>
+                <div class="droid-award-badge">
+                    <i class="fas fa-award"></i>
+                    <div>
+                        <strong>A little recognition</strong>
+                        <span>Award received at Droidcon Uganda</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="droid-gallery">
+            <div class="droid-photo feature reveal">
+                <img src="droid1.jpg" alt="Droidcon Uganda conference" data-lightbox loading="lazy">
+            </div>
+            <div class="droid-photo reveal reveal-delay-1">
+                <img src="droid2.jpg" alt="Developers at Droidcon Uganda" data-lightbox loading="lazy">
+            </div>
+            <div class="droid-photo reveal reveal-delay-2">
+                <img src="droid3.jpg" alt="Droidcon Uganda session" data-lightbox loading="lazy">
+            </div>
+            <div class="droid-photo reveal reveal-delay-3" style="grid-column: span 2;">
+                <img src="droid4.jpg" alt="Droidcon Uganda attendees" data-lightbox loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close"><i class="fas fa-times"></i></button>
+    <img src="" alt="" id="lightboxImg">
+</div>
+
 <!-- TESTIMONIALS -->
 <section id="testimonials">
     <div class="container">
@@ -1842,6 +2000,24 @@ function closeModal() {
 modalClose.addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ─── LIGHTBOX ───────────────────────────────────────
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+document.querySelectorAll('[data-lightbox]').forEach(img => {
+    img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    });
+});
+function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+}
+lightbox.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
 // ─── TYPING ─────────────────────────────────────────
 const words = ['with precision.', 'with purpose.', 'that lasts.', 'smarter with AI.'];
